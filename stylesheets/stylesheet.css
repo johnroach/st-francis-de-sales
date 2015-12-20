@@ -245,3 +245,19 @@ a {
 .cf {
   zoom:1;
 }
+
+#wrapper {
+  margin-left: 400px;
+}
+#content {
+  float: right;
+  width: 100%;
+}
+#sidebar {
+  float: left;
+  width: 400px;
+  margin-left: -400px;
+}
+#cleared {
+  clear: both;
+}
