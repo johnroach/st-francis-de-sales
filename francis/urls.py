@@ -21,5 +21,5 @@ import blog
 urlpatterns = [
     url(r'^', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^(?P<page_slug>\w+)/$', blog.views.slugged_page, name='slugged_page'),
+    url(r'^(?P<page_slug>.+)/$', blog.views.slugged_page, name='slugged_page'),
 ]
