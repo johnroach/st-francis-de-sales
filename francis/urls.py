@@ -14,9 +14,12 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
+import blog
 
 urlpatterns = [
+    url(r'^', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^(?P<page_slug>\w+)/$', blog.views.slugged_page, name='slugged_page'),
 ]
