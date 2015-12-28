@@ -1,0 +1,39 @@
+
+html {
+  background-color: #ffffff;
+}
+
+body {
+  background-repeat: repeat;
+  background-position: top left;
+  background-attachment: fixed;
+}
+
+.page-header {
+    background-color: #ffffff;
+    padding-top: 10px;
+}
+
+.blog-sidebar {
+    margin-top: 10px;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.blog-post-meta {
+    font-style: italic;
+    color: #ABABAB;
+}
+
+.post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.left-padding {
+    padding-left: 30px;
+}

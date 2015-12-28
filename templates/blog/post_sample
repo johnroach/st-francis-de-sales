@@ -1,0 +1,47 @@
+<div class="row post">
+  <h2>A Cool Post</h2>
+  <p class="blog-post-meta">12/12/2015 by <a href="">John Roach</a></p>
+  <p>Bacon ipsum dolor amet porchetta bacon beef ribs, rump short ribs tri-tip biltong.  Corned beef picanha shank pastrami ribeye sirloin bresaola pork belly t-bone frankfurter.  Cupim ball tip pork chop sirloin bacon landjaeger, pork loin pastrami strip steak jerky shoulder.  Short ribs beef kevin capicola tri-tip.</p>
+  <p>Tri-tip strip steak spare ribs, jerky corned beef doner alcatra cow bacon swine tongue pastrami kevin hamburger t-bone.  Sausage strip steak meatball venison doner, frankfurter pork sirloin tenderloin swine brisket tongue.  Capicola kielbasa meatball, meatloaf pastrami beef ribs short loin.  Hamburger tail sirloin spare ribs.</p>
+  <pre class="prettyprint">
+    <code class="language-python">
+from django.db import models
+
+# Create your models here.
+class Post(models.Model):
+date = models.DateField('date published')
+time = models.TimeField()
+creation_time = models.DateTimeField()
+modified_time = models.DateTimeField()
+title = models.TextField(max_length=255)
+post_text = models.TextField()
+slug = models.TextField(max_length=255)</code>
+  </pre>
+  <p>Brisket cow sausage filet mignon chuck.  Ground round rump turkey boudin alcatra pork chop picanha, ball tip porchetta biltong cow strip steak tenderloin drumstick.  Strip steak frankfurter swine meatball ball tip short loin pig.  Alcatra spare ribs beef ribs, ball tip pork belly prosciutto tri-tip cupim strip steak.  Sausage cupim pastrami strip steak capicola corned beef frankfurter sirloin pork belly venison.  Bacon sirloin kielbasa ham hock venison pig spare ribs.</p>
+  <p>Porchetta pork chop alcatra, ham pancetta venison ribeye cupim pig ball tip.  Bacon corned beef capicola, prosciutto pork belly porchetta ground round ham.  Hamburger meatloaf shankle, short loin chuck pancetta ham hock tri-tip.  Cow andouille brisket hamburger pork chop t-bone turkey boudin alcatra jowl strip steak turducken.</p>
+  <p>Strip steak filet mignon brisket kielbasa andouille t-bone.  Leberkas strip steak tail kielbasa brisket filet mignon.  Shankle strip steak flank doner tri-tip brisket spare ribs jerky rump boudin picanha meatloaf ground round meatball frankfurter.  Jowl bacon andouille picanha.</p>
+</div>
+
+<div class="row post">
+  <h2>A Cool Post</h2>
+  <p class="blog-post-meta">12/12/2015 by <a href="">John Roach</a></p>
+  <p>Bacon ipsum dolor amet porchetta bacon beef ribs, rump short ribs tri-tip biltong.  Corned beef picanha shank pastrami ribeye sirloin bresaola pork belly t-bone frankfurter.  Cupim ball tip pork chop sirloin bacon landjaeger, pork loin pastrami strip steak jerky shoulder.  Short ribs beef kevin capicola tri-tip.</p>
+  <p>Tri-tip strip steak spare ribs, jerky corned beef doner alcatra cow bacon swine tongue pastrami kevin hamburger t-bone.  Sausage strip steak meatball venison doner, frankfurter pork sirloin tenderloin swine brisket tongue.  Capicola kielbasa meatball, meatloaf pastrami beef ribs short loin.  Hamburger tail sirloin spare ribs.</p>
+  <pre class="prettyprint">
+    <code class="language-python">
+from django.db import models
+
+# Create your models here.
+class Post(models.Model):
+date = models.DateField('date published')
+time = models.TimeField()
+creation_time = models.DateTimeField()
+modified_time = models.DateTimeField()
+title = models.TextField(max_length=255)
+post_text = models.TextField()
+slug = models.TextField(max_length=255)</code>
+  </pre>
+  <p>Brisket cow sausage filet mignon chuck.  Ground round rump turkey boudin alcatra pork chop picanha, ball tip porchetta biltong cow strip steak tenderloin drumstick.  Strip steak frankfurter swine meatball ball tip short loin pig.  Alcatra spare ribs beef ribs, ball tip pork belly prosciutto tri-tip cupim strip steak.  Sausage cupim pastrami strip steak capicola corned beef frankfurter sirloin pork belly venison.  Bacon sirloin kielbasa ham hock venison pig spare ribs.</p>
+  <p>Porchetta pork chop alcatra, ham pancetta venison ribeye cupim pig ball tip.  Bacon corned beef capicola, prosciutto pork belly porchetta ground round ham.  Hamburger meatloaf shankle, short loin chuck pancetta ham hock tri-tip.  Cow andouille brisket hamburger pork chop t-bone turkey boudin alcatra jowl strip steak turducken.</p>
+  <p>Strip steak filet mignon brisket kielbasa andouille t-bone.  Leberkas strip steak tail kielbasa brisket filet mignon.  Shankle strip steak flank doner tri-tip brisket spare ribs jerky rump boudin picanha meatloaf ground round meatball frankfurter.  Jowl bacon andouille picanha.</p>
+</div>

@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%include "blog/header.html" %}
+  </head>
+
+  <body>
+
+    {% include "blog/navigation.html" %}
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="col-md-12">
+          {% if single_post %}
+          {% for post in single_post %}
+              <div class="row post">
+                  <h1>{{ post.title }}</h1>
+                  <p class="blog-post-meta">{{ post.date }} by <a href="">{{ post.created_by.first_name }} {{ post.created_by.last_name }}</a></p>
+                  {{ post.text |safe }}
+              </div>
+          {% endfor %}
+          {% else %}
+              <div class="row post">
+                  <p>You have no posts...</p>
+              </div>
+          {% endif %}
+      </div>
+    </div>
+
+    <footer class="footer">
+      {% include "blog/footer.html" %}
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <!-- For me the code writer -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <link href="{% static "default/css/code.css" %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "default/js/ie10-viewport-bug-workaround.js" %}"></script>
+  </body>
+</html>
