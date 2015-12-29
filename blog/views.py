@@ -11,7 +11,6 @@ import functools
 import operator
 
 
-# Create your views here.
 def index(request):
 
     latest_blog_posts = Post.objects.order_by('-date').all()
