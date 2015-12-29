@@ -11,7 +11,6 @@ This blogging platform is dedicated to him.
 - Search through pages and posts
 
 ## TODO
-- Dynamic Menu
 - Posts
     - Meta data settings
     - Tags
