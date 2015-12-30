@@ -25,6 +25,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Google Captcha Keys
+# Be share to get your keys from
+# https://www.google.com/recaptcha/intro/index.html
+GOOGLE_CAPTCHA_PUBLIC = os.environ.get('GOOGLE_CAPTCHA_PUBLIC')
+GOOGLE_CAPTCHA_PRIVATE = os.environ.get('GOOGLE_CAPTCHA_PRIVATE')
+
+
 ALLOWED_HOSTS = []
 
 

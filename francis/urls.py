@@ -23,7 +23,7 @@ import dashboard
 urlpatterns = [
     url(r'^', include('blog.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
-    url(r'^dashboard/login$', dashboard.views.login, name="login"),
+    url(r'^dashboard/login$', dashboard.views.login_user, name="login_user"),
 ]
 
 if settings.ADMIN_ENABLED:
