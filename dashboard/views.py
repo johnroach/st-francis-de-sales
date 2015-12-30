@@ -1,5 +1,5 @@
 from django.conf import settings as django_settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -12,6 +12,10 @@ def index(request):
         'page_name': 'dashboard'
     }
     return render(request, 'dashboard/index.html', context)
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/dashboard')
 
 def login_user(request):
 

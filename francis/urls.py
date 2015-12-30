@@ -21,9 +21,10 @@ import blog
 import dashboard
 
 urlpatterns = [
-    url(r'^', include('blog.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
-    url(r'^dashboard/login$', dashboard.views.login_user, name="login_user"),
+    url(r'^dashboard/logout', dashboard.views.logout_user, name='logout_user'),
+    url(r'^dashboard/login', dashboard.views.login_user, name="login_user"),
+    url(r'^', include('blog.urls')),
 ]
 
 if settings.ADMIN_ENABLED:
