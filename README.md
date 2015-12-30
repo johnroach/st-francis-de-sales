@@ -9,6 +9,9 @@ This blogging platform is dedicated to him.
 - Create posts!
 - Create pages!
 - Search through pages and posts
+- Dashboard
+    - Login Page
+        - [Google Captcha implementation](https://www.google.com/recaptcha/intro/index.html)
 
 ## TODO
 - Posts
@@ -27,8 +30,6 @@ This blogging platform is dedicated to him.
     - Meta data settings
     - Enable/Disable Comments
 - Dashboard
-    - Login Page
-        - [Google Captcha implementation](https://www.google.com/recaptcha/intro/index.html)
     - [CKEditor implementation](http://ckeditor.com/)
     - SEO Rules Tester
     - Sitemap generator
