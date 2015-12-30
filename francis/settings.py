@@ -127,3 +127,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+LOGIN_URL="/dashboard/login"
+
+
+# Disable Admin interface here
+# This needs to be False for production
+ADMIN_ENABLED = True

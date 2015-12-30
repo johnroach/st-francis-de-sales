@@ -4,7 +4,7 @@ from .models import Page
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 import datetime
 import functools
@@ -88,13 +88,16 @@ def search_result(request):
 
 def slugged_page(request, page_slug):
     pages = Page.objects.filter(slug=page_slug)
-    context = {
-        'meta_description': 'This is a meta description',
-        'menu': menu_generator(),
-        'page_name': pages[0].slug,
-        'page': pages[0],
-    }
-    return render(request, 'blog/page.html', context)
+    if pages:
+        context = {
+            'meta_description': 'This is a meta description',
+            'menu': menu_generator(),
+            'page_name': pages[0].slug,
+            'page': pages[0],
+        }
+        return render(request, 'blog/page.html', context)
+    else:
+        raise Http404()
 
 def tagged_posts(request, tags):
     return HttpResponse(tags)
