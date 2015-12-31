@@ -58,3 +58,10 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+@login_required
+def posts(request):
+    context = {
+        'page_name': 'posts'
+    }
+    return render(request, 'dashboard/index.html', context)

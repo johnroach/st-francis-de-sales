@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li
+    {% if page_name == "dashboard" %}
+    class="active"
+    {% endif %}
+    ><a href="/dashboard">Overview
+    {% if page_name == "dashboard" %}
+    <span class="sr-only">(current)</span>
+    {% endif %}
+    </a></li>
+    <li
+    {% if page_name == "posts" %}
+    class="active"
+    {% endif %}
+    ><a href="/dashboard/posts">Posts
+        {% if page_name == "posts" %}
+        <span class="sr-only">(current)</span>
+        {% endif %}
+    </a></li>
+    <li><a href="/dashboard/pages">Pages</a></li>
+    <li><a href="/dashboard/assets">Assets</a></li>
+    <li><a href="/dashboard/reports">Reports</a></li>
+    <li><a href="/dashboard/analytics">Analytics</a></li>
+    <li><a href="/dashboard/">Export</a></li>
+  </ul>
+</div>
