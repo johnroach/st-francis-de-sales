@@ -6,6 +6,7 @@ This blogging platform is dedicated to him.
 
 ## Current Capabilities
 
+- Functional Tests :)
 - Create posts!
 - Create pages!
 - Search through pages and posts

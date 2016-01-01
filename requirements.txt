@@ -4,3 +4,5 @@ scrapy==1.0.3
 django-redis==4.2.0
 virtualenvwrapper==4.7.1
 requests==2.9.1
+selenium==2.48.0
+xvfbwrapper==0.2.7
