@@ -1,3 +1,4 @@
+from blog.models import Post
 from django.conf import settings as django_settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -61,7 +62,9 @@ def get_client_ip(request):
 
 @login_required
 def posts(request):
+    all_blog_posts = Post.objects.order_by('-date').all()
     context = {
-        'page_name': 'posts'
+        'page_name': 'posts',
+        'posts': all_blog_posts,
     }
     return render(request, 'dashboard/index.html', context)

@@ -11,8 +11,10 @@ class blog_tests(object):
     def run_tests(self):
         tests = []
 
+        # Start adding tests here
         tests.append({'test': self.check_home_page,'name': 'Home Page Check'})
 
+        # end of adding tests
         for test in tests:
             try:
                 test["test"]()
