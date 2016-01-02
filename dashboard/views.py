@@ -2,7 +2,7 @@ from blog.models import Post
 from django.conf import settings as django_settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 import requests
 
@@ -66,5 +66,17 @@ def posts(request):
     context = {
         'page_name': 'posts',
         'posts': all_blog_posts,
+    }
+    return render(request, 'dashboard/index.html', context)
+
+@login_required
+def post(request, post_id):
+    try:
+        blog_post = Post.objects.get(pk=post_id)
+    except Post.DoesNotExist:
+        raise Http404()
+    context = {
+        'page_name': 'post',
+        'post': blog_post,
     }
     return render(request, 'dashboard/index.html', context)
