@@ -8,6 +8,9 @@ This blogging platform is dedicated to him.
 
 - Functional Tests :)
 - Create posts!
+- Posts
+    - Video handler (Youtube+)
+    - Code as Content handler
 - Create pages!
 - Search through pages and posts
 - Dashboard
@@ -20,8 +23,6 @@ This blogging platform is dedicated to him.
     - Tags
     - Categories
     - Featured image
-    - Video handler (Youtube+)
-    - Code as Content handler
     - Enable/Disable Comments
 - Comments
     - [Gravatar Integration](https://en.gravatar.com/site/implement/images/python/)
