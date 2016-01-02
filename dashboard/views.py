@@ -71,6 +71,18 @@ def posts(request):
 
 @login_required
 def post(request, post_id):
+    if request.method == 'POST':
+        data = request.POST
+        title = data['title']
+        text = data['text']
+        post_id = data['id']
+
+        post = Post.objects.get(id=post_id)
+        post.title = title
+        post.text = text
+        post.save()
+        return HttpResponseRedirect('/dashboard/posts/post/' + str(post_id))
+
     try:
         blog_post = Post.objects.get(pk=post_id)
     except Post.DoesNotExist:

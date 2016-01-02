@@ -37,3 +37,7 @@ body {
 .left-padding {
     padding-left: 30px;
 }
+
+pre {
+    background: #23241f;
+}

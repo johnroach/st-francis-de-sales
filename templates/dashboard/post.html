@@ -3,17 +3,22 @@
     {% if post %}
     <ol class="breadcrumb">
       <li><a href="/dashboard/posts">Posts</a></li>
-      <li class="active">Some Post</li>
+      <li class="active">{{ post.title }}</li>
     </ol>
-
+    <p><b>URL: </b>
+        <a href="http://{{ request.get_host }}/{{ post.date|date:"Y" }}/{{ post.date|date:"m" }}/{{ post.date|date:"d" }}/{{ post.slug }}" target="_blank">
+            {{ request.get_host }}/{{ post.date|date:"Y" }}/{{ post.date|date:"m" }}/{{ post.date|date:"d" }}/{{ post.slug }}
+        </a></p>
     <form action="." method="post">
+        {% csrf_token %}
       <div class="col-md-8 img-rounded" style="background-color:#f5f5f5;">
           <br>
           <div class="form-group">
               <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}">
+              <input type="hidden" value="{{ post.id }}" name="id" id="id">
           </div>
           <div class="form-group">
-              <textarea class="form-control" name="editor1" id="editor1" rows="50" cols="80">{{ post.text }}</textarea>
+              <textarea class="form-control" name="text" id="text" rows="50" cols="80">{{ post.text }}</textarea>
           </div>
       </div>
       <div class="col-md-3 img-rounded" style="background-color:#f5f5f5; margin-left:10px;">
@@ -28,8 +33,9 @@
     <script>
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-     CKEDITOR.config.height = 450;
-    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.config.mathJaxLib = '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML';
+    CKEDITOR.config.height = 450;
+    CKEDITOR.replace( 'text' );
     </script>
   {% else %}
    No such post
