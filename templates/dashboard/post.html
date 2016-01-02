@@ -7,16 +7,16 @@
     </ol>
 
     <form action="." method="post">
-      <div class="col-md-7 img-rounded" style="background-color:#f5f5f5;">
+      <div class="col-md-8 img-rounded" style="background-color:#f5f5f5;">
           <br>
           <div class="form-group">
               <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}">
           </div>
           <div class="form-group">
-              <textarea class="form-control" name="editor1" id="editor1" rows="10" cols="80">{{ post.text }}</textarea>
+              <textarea class="form-control" name="editor1" id="editor1" rows="50" cols="80">{{ post.text }}</textarea>
           </div>
       </div>
-      <div class="col-md-4 img-rounded" style="background-color:#f5f5f5; margin-left:10px;">
+      <div class="col-md-3 img-rounded" style="background-color:#f5f5f5; margin-left:10px;">
           <br>
           <input type="submit" class="btn btn-primary" value="Publish Changes" />
 
@@ -28,6 +28,7 @@
     <script>
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
+     CKEDITOR.config.height = 450;
     CKEDITOR.replace( 'editor1' );
     </script>
   {% else %}
