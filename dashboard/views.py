@@ -62,6 +62,9 @@ def get_client_ip(request):
 
 @login_required
 def posts(request):
+    if request.method == 'POST':
+        data = request.POST
+
     all_blog_posts = Post.objects.order_by('-date').all()
     context = {
         'page_name': 'posts',

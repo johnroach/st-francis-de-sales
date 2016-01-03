@@ -18,18 +18,38 @@
         <td>{{ post.title }}</td>
         <td>{{ post.date }}</td>
         <td>
-          <button type="button" class="btn btn-warning">
-              <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-              Un-publish
-          </button>
-          <button type="button" class="btn btn-danger">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              Delete
-          </button>
-          <a href="/dashboard/posts/post/{{ post.id }}" class="btn btn-primary">
-              <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
-              Open Post
-          </a>
+            <!-- Someone please stop me from making this :( -->
+            <!-- I really didn't want to use a table within a table but couldn't get div's to work for me -->
+            <table>
+                <tr>
+                    <td style="padding:5px;">
+                        <form method="post" name="publishing_form_{{ post.id }}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ post.id }}" name="post_id" id="post_id">
+                            <button type="submit" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                                Un-publish
+                            </button>
+                        </form>
+                    </td>
+                    <td style="padding:5px;">
+                        <form method="post" name="delete_form_{{ post.id }}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ post.id }}" name="post_id" id="post_id">
+                            <button type="submit" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                    <td style="padding:5px;">
+                        <a href="/dashboard/posts/post/{{ post.id }}" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+                            Open Post
+                        </a>
+                    </td>
+                </tr>
+            </table>
         </td>
         </tr>
         {% endfor %}
