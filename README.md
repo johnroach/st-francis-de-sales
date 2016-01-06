@@ -11,6 +11,8 @@ This blogging platform is dedicated to him.
 - Posts
     - Video handler (Youtube+)
     - Code as Content handler
+- Comments
+    - [Gravatar Integration](https://en.gravatar.com/site/implement/images/python/)    
 - Create pages!
 - Search through pages and posts
 - Dashboard
@@ -25,7 +27,6 @@ This blogging platform is dedicated to him.
     - Featured image
     - Enable/Disable Comments
 - Comments
-    - [Gravatar Integration](https://en.gravatar.com/site/implement/images/python/)
     - Comment Moderation
     - [Google Captcha implementation](https://www.google.com/recaptcha/intro/index.html)
 - Pages
