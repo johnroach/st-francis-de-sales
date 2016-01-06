@@ -7,7 +7,7 @@ register = template.Library()
 
 @register.simple_tag
 def number_of_comments(post_id):
-    return len(Comment.objects.filter(post=post_id))
+    return len(Comment.objects.filter(post=post_id, approved=True))
 
 @register.simple_tag
 def comment_author_gravatar(email):

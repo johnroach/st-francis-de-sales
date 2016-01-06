@@ -13,6 +13,8 @@ class Post(models.Model):
     text = models.TextField()
     time = models.TimeField()
     title = models.TextField(max_length=255)
+    disable_comments = models.BooleanField(default=False)
+    hide_comments = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
