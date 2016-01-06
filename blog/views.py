@@ -36,13 +36,18 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 def single_post(request, year, day, month, url_slug):
-    single_post = Post.objects.filter(date=datetime.date(int(year),
+    post = Post.objects.filter(date=datetime.date(int(year),
         int(month), int(day)), slug=url_slug)
+
+    post_id = post[0].id
+
+    comments = Comment.objects.filter(post=post_id, approved=True)
 
     context = {
         'meta_description': 'This is a meta description',
         'menu': menu_generator(),
-        'single_post': single_post,
+        'post': post[0],
+        'comments': comments,
     }
     return render(request, 'blog/post.html', context)
 
