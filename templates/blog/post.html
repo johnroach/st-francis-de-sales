@@ -22,7 +22,7 @@
               </div>
               <hr>
               <div class="row">
-                  <button class="btn btn-success btn-lg">Leave a comment...</button>
+                  <button class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#comment_modal">Leave a comment...</button>
               </div>
               <br>
               <div class="row">
@@ -38,11 +38,11 @@
                           <h5 class="media-heading">{{comment.name}}</h5>
                           {{comment.comment}}
                               <div class="text-right">
-                                  <button class="btn btn-primary btn-md ">Reply</button>
+                                  <button class="btn btn-primary btn-md"  data-toggle="modal" data-target="#comment_modal">Reply</button>
                               </div>
-                              <hr>
                           {% for child_comment in comments %}
                             {% if child_comment.parent.id == comment.id %}
+                            <hr>
                             <div class="media">
                                 <div class="media-left">
                                     <img class="media-object" src="{% comment_author_gravatar child_comment.email %}" alt="{{ child_comment.email }}">
@@ -51,7 +51,7 @@
                                     <h5 class="media-heading">{{ child_comment.name }}</h5>
                                     {{ child_comment.comment }}
                                     <div class="text-right">
-                                        <button class="btn btn-primary btn-md ">Reply</button>
+                                        <button class="btn btn-primary btn-md"  data-toggle="modal" data-target="#comment_modal">Reply</button>
                                     </div>
                                     <hr>
                                     {% for child_child_comment in comments %}
@@ -64,7 +64,7 @@
                                             <h5 class="media-heading">{{ child_child_comment.name }}</h5>
                                             {{ child_child_comment.comment }}
                                             <div class="text-right">
-                                                <button class="btn btn-primary btn-md ">Reply</button>
+                                                <button class="btn btn-primary btn-md"  data-toggle="modal" data-target="#comment_modal">Reply</button>
                                             </div>
                                         </div>
                                     </div>
@@ -81,6 +81,25 @@
                 {% endfor %}
                 </ul>
               </div>
+
+              <!-- Modal -->
+            <div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default text-left pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary text-right">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           {% else %}
               <div class="row post">
