@@ -1,33 +1,30 @@
 {% load staticfiles %}
+{% load post_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {%include "blog/header.html" %}
+    {%include "koc/header.html" %}
   </head>
 
   <body>
 
-    {% include "blog/navigation.html" %}
+    {% include "koc/navigation.html" %}
 
     <!-- Begin page content -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Search Results</h2>
-
-                {% if search_results %}
-                <ul>
-                {% for post in search_results %}
-                <li>
-                    <b><a href="/{{post.date.year}}/{{post.date.month}}/{{post.date.day}}/{{post.slug}}">{{ post.title }}</a></b>&nbsp;&nbsp;
-                    <span class="blog-post-meta">{{ post.date }}</span>
-                    {{ post.text | striptags | truncatechars_html:255 }}
-                </li>
+                {% if posts %}
+                {% for post in posts %}
+                <div class="row post">
+                    <h2><a href="/{{post.date.year}}/{{post.date.month}}/{{post.date.day}}/{{post.slug}}">{{ post.title }}</a></h2>
+                    <p class="blog-post-meta">{{ post.date }} by <a href="">{{ post.created_by.first_name }} {{ post.created_by.last_name }}</a> | <i class="fa fa-comments"></i> Comments {% number_of_comments post.id %}</p>
+                    {{ post.text |safe }}
+                </div>
                 {% endfor %}
-                </ul>
                 {% else %}
                 <div class="row post">
-                    <p>We couldn't find any results</p>
+                    <p>You have no posts...</p>
                 </div>
                 {% endif %}
             </div>
@@ -35,7 +32,6 @@
         <div class="row">
             <div class="col-md-3 col-md-offset-5">
                 <div class="pagination">
-                    {% if posts.has_previous or posts.has_next %}
                     <div class="btn-group " role="group" aria-label="...">
                         {% if not posts.has_previous %}
                         <a class="btn btn-default disabled">
@@ -53,25 +49,21 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         </a>
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        {% include "blog/footer.html" %}
+        {% include "koc/footer.html" %}
     </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <!-- For me the code writer -->
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <link href="{% static "default/css/code.css" %}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static "default/js/ie10-viewport-bug-workaround.js" %}"></script>

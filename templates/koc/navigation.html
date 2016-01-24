@@ -20,6 +20,10 @@
         class="active"
         {% endif %}
         ><a href="/">Home</a></li>
+        <li {% if page_name == "blog" %}
+        class="active"
+        {% endif %}
+        ><a href="/blog">Blog</a></li>
         {% if menu %}
         {% for page in menu %}
         <li
