@@ -31,9 +31,33 @@ def index(request):
         'meta_description': 'This is the meta description',
         'page_name': 'home',
         'menu': menu_generator(),
+        'posts': posts[0],
+    }
+    return render(request, 'koc/index.html', context)
+
+def blog(request):
+
+    latest_blog_posts = Post.objects.order_by('-date').all()
+    paginator = Paginator(latest_blog_posts, 2)
+
+    page = request.GET.get('page')
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        'meta_description': 'This is the meta description',
+        'page_name': 'blog',
+        'menu': menu_generator(),
         'posts': posts,
     }
-    return render(request, 'blog/index.html', context)
+    return render(request, 'koc/blog.html', context)
 
 def single_post(request, year, day, month, url_slug):
     post = Post.objects.filter(date=datetime.date(int(year),
@@ -49,7 +73,7 @@ def single_post(request, year, day, month, url_slug):
         'post': post[0],
         'comments': comments,
     }
-    return render(request, 'blog/post.html', context)
+    return render(request, 'koc/post.html', context)
 
 def search_result(request):
     query = request.GET.get('q')
@@ -89,7 +113,7 @@ def search_result(request):
         'menu': menu_generator(),
         'search_results': search_results,
     }
-    return render(request, 'blog/search.html', context)
+    return render(request, 'koc/search.html', context)
 
 def slugged_page(request, page_slug):
     pages = Page.objects.filter(slug=page_slug)
@@ -100,7 +124,7 @@ def slugged_page(request, page_slug):
             'page_name': pages[0].slug,
             'page': pages[0],
         }
-        return render(request, 'blog/page.html', context)
+        return render(request, 'koc/page.html', context)
     else:
         raise Http404()
 
@@ -111,5 +135,5 @@ def categoried_posts(request, categories):
     return HttpResponse(categories)
 
 def menu_generator():
-    pages = Page.objects.order_by('-rank').all()
+    pages = Page.objects.order_by('rank').all()
     return pages
